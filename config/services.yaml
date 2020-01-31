@@ -4,7 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-
+    from_email:
+        confirmation: 'orange@orange.sn'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -26,6 +27,17 @@ services:
     orange.mailer:
         class:      App\Service\Mailer
         arguments:  ["@mailer", "@templating"]
+
+    App\Controller\ResettingController:
+    #decorates: fos_user.registration.controller
+        arguments:
+            $formFactory: '@fos_user.resetting.form.factory'
+            $mailer: '@fos_user.mailer'
+            $retryTtl: ''
+
+    FOS\UserBundle\Form\Factory\FactoryInterface:
+        alias: 'fos_user.resetting.form.factory'
+        public: true
 
 
     # add more service definitions when explicit configuration is needed

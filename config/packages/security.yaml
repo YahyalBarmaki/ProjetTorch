@@ -24,7 +24,7 @@ security:
     access_control:
         - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_FULLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^api/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
 
     firewalls:
@@ -45,6 +45,10 @@ security:
             pattern:  ^/api/auth/register
             stateless: true
             anonymous: true     
+        api_resetting:
+            pattern:  ^/api/resetting
+            stateless: false
+            anonymous: true      
         api:
             pattern: ^/api
             stateless: true

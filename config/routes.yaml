@@ -11,3 +11,6 @@ api_auth_logout:
 api:
     prefix: /api
     resource: '../src/Controller/api'
+fos_user_resetting_request:
+    path: /api/resetting
+    controller: 'App\controller\ResettingController'
