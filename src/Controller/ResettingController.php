@@ -51,7 +51,7 @@ class ResettingController extends Controller
 
     /**
      * Request reset user password: show form.
-     * @Route("/api/resetting",name="resetting")
+     * @Route("/resetting",name="resetting")
      */
     public function requestAction()
     {
