@@ -50,8 +50,8 @@ security:
             stateless: false
             anonymous: true      
         api:
-            pattern: ^/api
-            stateless: true
+            pattern: ^/
+            stateless: false
             anonymous: false
             provider: chain_provider
             guard:
